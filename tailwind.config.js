@@ -12,6 +12,7 @@ export default {
         lightgray: "#393E46",
         ctmblue: "#00ADB5",
         graywhite: "#EEEEEE",
+        ctmred: "#BE3144",
       },
     },
   },
