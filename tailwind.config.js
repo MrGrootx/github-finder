@@ -13,6 +13,8 @@ export default {
         ctmblue: "#00ADB5",
         graywhite: "#EEEEEE",
         ctmred: "#BE3144",
+        graydark: "#27374D",
+        ctnblue2: "#1597BB",
       },
     },
   },
