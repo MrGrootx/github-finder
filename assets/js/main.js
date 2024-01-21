@@ -201,8 +201,8 @@ async function PageUppendfcn(data) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      data.forEach((repo) => {
-        console.log(repo);
+      data.forEach((repo, index) => {
+      //   console.log(repo);
         const orgdate = repo.updated_at;
         const date = new Date(orgdate).toLocaleString()
         updateRepoList.innerHTML += `
