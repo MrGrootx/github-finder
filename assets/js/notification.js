@@ -22,19 +22,28 @@ export function SetNotificationErr(
 }
 
 /*
+export async function exportUserData(data) {
+  try {
+    // Assuming you want to send data to another page using a POST request
+    const res = await fetch('your_export_url', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-iziToast.error({
-         title: "",
-         message: "No User Found",
-         position: "topRight",
-         progressBarColor: "#00ADB5",
-         backgroundColor: "#222831",
-         messageSize: "50px",
-         timeout: 5000,
-         transitionIn: "flipInX",
-         messageColor: "white",
-         theme: "dark",
-         progressBar: true,
-         progressBarEasing: 'linear',
-       });
+    if (res.ok) {
+      console.log('Data successfully exported to another page');
+      // Optionally, you can perform additional actions after successful export
+    } else {
+      console.log('Failed to export data to another page');
+      // Optionally, handle the failure scenario
+    }
+  } catch (error) {
+    console.error('Error during data export:', error);
+    // Optionally, handle the error scenario
+  }
+}
+
 */

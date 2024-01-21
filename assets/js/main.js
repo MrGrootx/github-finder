@@ -1,5 +1,6 @@
 import iziToast from "izitoast";
 import { SetNotificationErr } from "../js/notification";
+// import { userDataPage } from "../js/Pageuser";
 
 // console.log(iziToast);
 
@@ -50,12 +51,134 @@ async function getUserFcn(username) {
         inputUser.value = "";
       }
       return;
+    } else {
+      const data = await res.json();
+      PageUppendfcn(data);
+      console.log(data);
     }
-
-    const data = await res.json();
-    console.log(data);
-    //  console.log(data);
   } catch (error) {}
+}
+
+const resultShowSection = document.querySelector("#resultShowSection");
+async function PageUppendfcn(data) {
+
+   const orgDate = data.created_at
+   const convertDate = new Date(orgDate).toDateString()
+
+   resultShowSection.classList.remove("hidden")
+  resultShowSection.innerHTML += `
+   <div class="">
+      <div class="flex justify-center">
+        <img
+          src="${data.avatar_url}"
+          alt="profilepic"
+          class="object-cover w-[260px] h-[260px] rounded-full"
+        />
+      </div>
+      <div class="items-center">
+        <div class="mt-7">
+          <div
+            class="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-5 gap-y-3 px-3 md:px-0"
+          >
+            <div
+              class="bg-blue-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
+            >
+              <i class="fa-solid fa-user-group"></i> Followers : <span>${data.followers}</span>
+            </div>
+
+            <div
+              class="bg-teal-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
+            >
+              <i class="fa-solid fa-heart"></i> Following : <span>${data.following}</span>
+            </div>
+
+            <div
+              class="bg-sky-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
+            >
+              <i class="fa-brands fa-github"></i> Public Repos : <span>${data.public_repos}</span>
+            </div>
+
+            <div
+              class="bg-cyan-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
+            >
+              <i class="fa-solid fa-clipboard"></i> Public Gists :
+              <span>${data.public_gists}</span>
+            </div>
+            <div
+              class="bg-indigo-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
+            >
+              <i class="fa-solid fa-code"></i> hireable : <span>${data.hireable ? "Yes" : "No"}</span>
+            </div>
+            <div
+              class="bg-violet-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
+            >
+              <i class="fa-brands fa-twitter"></i> twitter :
+              <span>${data.twitter_username ? data.twitter_username : "Nope"}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="container mx-auto mt-6">
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 grid-cols-1 2xl:grid-cols-4 gap-4 text-center"
+        >
+          <div class="bg-gray-700 py-3 hover:bg-lightgray rounded">
+            <h1 class="font-semibold text-sky-600">
+              Name : <span class="text-graywhite">${data.name}</span>
+            </h1>
+          </div>
+          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
+            <h1 class="font-semibold text-sky-600">
+              <h1 class="font-semibold text-sky-600">
+                Bio : <span class="text-graywhite">${data.bio ? data.bio : "Not Provided"}</span>
+              </h1>
+            </h1>
+          </div>
+          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
+            <h1 class="font-semibold text-sky-600">
+              Company :
+              <span class="text-graywhite">${data.company}</span>
+            </h1>
+          </div>
+          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
+            <h1 class="font-semibold text-sky-600">
+              Location : <span class="text-graywhite">${data.location}</span>
+            </h1>
+          </div>
+          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
+            <h1 class="font-semibold text-sky-600">
+              Blog :
+              <span class="text-graywhite">${data.blog ? data.blog : "Not Provided"}</span>
+            </h1>
+          </div>
+          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
+            <h1 class="font-semibold text-sky-600">
+              Member since : <span class="text-graywhite">${convertDate}</span>
+            </h1>
+          </div>
+        </div>
+      </section>
+
+
+     </div>
+
+
+     <div class="w-full">
+        <div class="flex md:justify-end">
+          <ul class="md:w-32 w-full text-center mt-3">
+            <a href="${data.html_url}" target="_blank" rel="noopener noreferrer"
+              ><li
+                class="bg-ctmblue py-1 rounded text-gray-900 font-semibold hover:bg-teal-600"
+              >
+                Vist Profile
+              </li></a
+            >
+          </ul>
+        </div>
+      </div>
+
+   `;
 }
 
 function searchValue(e) {
