@@ -256,5 +256,4 @@ setInterval(() => {
 const searchNewuser = document.querySelector("#searchNewuser");
 searchNewuser.addEventListener("click", (e) => {
    location.href = "/"
-   inputUser.setAttribute = "autofocus"
 })
