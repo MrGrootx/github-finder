@@ -38,7 +38,7 @@ async function getUserFcn(username) {
     const res = await fetch(API + username);
     if (!res.ok) {
       if (res.status === 404) {
-      //   console.log("User not found");
+        //   console.log("User not found");
 
         SetNotificationErr(false, "User not Found", 5000, "#222831", "#00ADB5");
 
@@ -59,6 +59,8 @@ async function PageUppendfcn(data) {
   const convertDate = new Date(orgDate).toDateString();
   inputUser.value = "";
   resultShowSection.classList.remove("hidden");
+  document.querySelector("#SearchSectionDisable").classList.add("hidden");
+  document.querySelector("#searchNewuser").classList.remove("hidden");
   resultShowSection.innerHTML += `
    <div class="">
       <div class="flex justify-center">
@@ -240,7 +242,7 @@ function searchValue(e) {
   if (inputUser.value != "") {
     getUserFcn(inputUser.value);
   } else {
-   //  console.log("no data found");
+    //  console.log("no data found");
     return false;
   }
 }
@@ -250,3 +252,9 @@ setInterval(() => {
     SearchBtn.disabled = true;
   }
 }, 500);
+
+const searchNewuser = document.querySelector("#searchNewuser");
+searchNewuser.addEventListener("click", (e) => {
+   location.href = "/"
+   inputUser.setAttribute = "autofocus"
+})
