@@ -63,108 +63,11 @@
       id="resultShowSection"
     >
 
-    <!-- Profile Page-->
-     <!-- <div class="">
-      <div class="flex justify-center">
-        <img
-          src="/assets/img/grootx.png"
-          alt="profilepic"
-          class="object-cover w-[260px] h-[260px] rounded-full"
-        />
-      </div>
-      <div class="items-center">
-        <div class="mt-7">
-          <div
-            class="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-5 gap-y-3 px-3 md:px-0"
-          >
-            <div
-              class="bg-blue-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
-            >
-              <i class="fa-solid fa-user-group"></i> Followers : <span>5</span>
-            </div>
 
-            <div
-              class="bg-teal-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
-            >
-              <i class="fa-solid fa-heart"></i> Following : <span>2</span>
-            </div>
-
-            <div
-              class="bg-sky-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
-            >
-              <i class="fa-brands fa-github"></i> Public Repos : <span>5</span>
-            </div>
-
-            <div
-              class="bg-cyan-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
-            >
-              <i class="fa-solid fa-clipboard"></i> Public Gists :
-              <span>2</span>
-            </div>
-            <div
-              class="bg-indigo-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
-            >
-              <i class="fa-solid fa-code"></i> hireable : <span>Yes/No</span>
-            </div>
-            <div
-              class="bg-violet-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
-            >
-              <i class="fa-brands fa-twitter"></i> twitter :
-              <span>twi.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <section class="container mx-auto mt-6">
-        <div
-          class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 grid-cols-1 2xl:grid-cols-4 gap-4 text-center"
-        >
-          <div class="bg-gray-700 py-3 hover:bg-lightgray rounded">
-            <h1 class="font-semibold text-sky-600">
-              Name : <span class="text-graywhite">Mr Groot x</span>
-            </h1>
-          </div>
-          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
-            <h1 class="font-semibold text-sky-600">
-              <h1 class="font-semibold text-sky-600">
-                Bio : <span class="text-graywhite">i love coding</span>
-              </h1>
-            </h1>
-          </div>
-          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
-            <h1 class="font-semibold text-sky-600">
-              Company :
-              <span class="text-graywhite">Groot Development</span>
-            </h1>
-          </div>
-          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
-            <h1 class="font-semibold text-sky-600">
-              Location : <span class="text-graywhite">India</span>
-            </h1>
-          </div>
-          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
-            <h1 class="font-semibold text-sky-600">
-              Blog :
-              <span class="text-graywhite">www.https://grootxdev.com</span>
-            </h1>
-          </div>
-          <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
-            <h1 class="font-semibold text-sky-600">
-              Member since : <span class="text-graywhite">12/5/2000</span>
-            </h1>
-          </div>
-        </div>
-      </section>
-
-
-     </div> -->
-     
-      
     </section>
 
     <section class="container mx-auto mt-9 mb-6 px-5">
-      <div>
+      <div id="sectionHeader" class="hidden">
         <h3 class="font-semibold md:text-2xl">Last updated repos :</h3>
       </div>
 
@@ -180,7 +83,7 @@
 
     </section>
 
-    <section class="container mx-auto mt-9 mb-6 px-5 ">
+    <section class="container mx-auto mt-9 mb-6 px-5 hidden" id="footerSection">
       <footer class="bg-white dark:bg-gray-900 rounded border-b border-gray-500">
         <div class="container md:px-6 px-3 md:py-8 py-2 mx-auto">
             <div class="flex flex-col items-center sm:flex-row sm:justify-between">

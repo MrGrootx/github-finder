@@ -198,15 +198,19 @@ async function PageUppendfcn(data) {
 
   const url = `https://api.github.com/users/${data.login}/repos`;
 
+  const sectionHeader = document.querySelector("#sectionHeader").classList.remove("hidden");
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       data.forEach((repo, index) => {
-      //   console.log(repo);
+        //   console.log(repo);
         const orgdate = repo.updated_at;
-        const date = new Date(orgdate).toLocaleString()
+        const date = new Date(orgdate).toLocaleString();
         updateRepoList.innerHTML += `
   
+        
+
   <div class="bg-graydark p-3 rounded shadow hover:shadow-gray-400">
     <h3>
       <i class="fa-solid fa-box-archive"></i
@@ -230,6 +234,8 @@ async function PageUppendfcn(data) {
     <h4 class="text-xs text-red-500">Last update: <span>${date}</span></h4>
   </div>
   `;
+        const footerSection = document.querySelector("#footerSection");
+        footerSection.classList.remove("hidden");
       });
     });
 }
