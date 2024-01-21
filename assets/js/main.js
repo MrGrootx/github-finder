@@ -61,11 +61,10 @@ async function getUserFcn(username) {
 
 const resultShowSection = document.querySelector("#resultShowSection");
 async function PageUppendfcn(data) {
+  const orgDate = data.created_at;
+  const convertDate = new Date(orgDate).toDateString();
 
-   const orgDate = data.created_at
-   const convertDate = new Date(orgDate).toDateString()
-
-   resultShowSection.classList.remove("hidden")
+  resultShowSection.classList.remove("hidden");
   resultShowSection.innerHTML += `
    <div class="">
       <div class="flex justify-center">
@@ -83,19 +82,25 @@ async function PageUppendfcn(data) {
             <div
               class="bg-blue-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
             >
-              <i class="fa-solid fa-user-group"></i> Followers : <span>${data.followers}</span>
+              <i class="fa-solid fa-user-group"></i> Followers : <span>${
+                data.followers
+              }</span>
             </div>
 
             <div
               class="bg-teal-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
             >
-              <i class="fa-solid fa-heart"></i> Following : <span>${data.following}</span>
+              <i class="fa-solid fa-heart"></i> Following : <span>${
+                data.following
+              }</span>
             </div>
 
             <div
               class="bg-sky-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
             >
-              <i class="fa-brands fa-github"></i> Public Repos : <span>${data.public_repos}</span>
+              <i class="fa-brands fa-github"></i> Public Repos : <span>${
+                data.public_repos
+              }</span>
             </div>
 
             <div
@@ -107,13 +112,17 @@ async function PageUppendfcn(data) {
             <div
               class="bg-indigo-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
             >
-              <i class="fa-solid fa-code"></i> hireable : <span>${data.hireable ? "Yes" : "No"}</span>
+              <i class="fa-solid fa-code"></i> hireable : <span>${
+                data.hireable ? "Yes" : "No"
+              }</span>
             </div>
             <div
               class="bg-violet-600 rounded text-center md:px-3 font-semibold mt-2 md:mt-0 px-2 w-full"
             >
               <i class="fa-brands fa-twitter"></i> twitter :
-              <span>${data.twitter_username ? data.twitter_username : "Nope"}</span>
+              <span>${
+                data.twitter_username ? data.twitter_username : "Nope"
+              }</span>
             </div>
           </div>
         </div>
@@ -131,7 +140,9 @@ async function PageUppendfcn(data) {
           <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
             <h1 class="font-semibold text-sky-600">
               <h1 class="font-semibold text-sky-600">
-                Bio : <span class="text-graywhite">${data.bio ? data.bio : "Not Provided"}</span>
+                Bio : <span class="text-graywhite">${
+                  data.bio ? data.bio : "Not Provided"
+                }</span>
               </h1>
             </h1>
           </div>
@@ -149,7 +160,9 @@ async function PageUppendfcn(data) {
           <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
             <h1 class="font-semibold text-sky-600">
               Blog :
-              <span class="text-graywhite">${data.blog ? data.blog : "Not Provided"}</span>
+              <span class="text-graywhite">${
+                data.blog ? data.blog : "Not Provided"
+              }</span>
             </h1>
           </div>
           <div class="py-3 bg-gray-700 hover:bg-lightgray rounded">
@@ -179,6 +192,46 @@ async function PageUppendfcn(data) {
       </div>
 
    `;
+
+  // Update Repo
+  const updateRepoList = document.querySelector("#updateRepoList");
+
+  const url = `https://api.github.com/users/${data.login}/repos`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((repo) => {
+        console.log(repo);
+        const orgdate = repo.updated_at;
+        const date = new Date(orgdate).toLocaleString()
+        updateRepoList.innerHTML += `
+  
+  <div class="bg-graydark p-3 rounded shadow hover:shadow-gray-400">
+    <h3>
+      <i class="fa-solid fa-box-archive"></i
+      ><span class="text-ctnblue2 font-bold ml-2 hover:underline"
+        ><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+          >${repo.name}</a
+        ></span
+      >
+    </h3>
+    <p class="text-xs ml-3 mt-2">
+      ${repo.description ? repo.description : ""}
+    </p>
+    <div class="flex gap-x-3 mt-3 mb-2">
+      <h1 class=""><i class="fa-regular fa-star text-green-600 mr-1"></i>${
+        repo.stargazers_count
+      }</h1>
+      <h1 class=""><i class="fa-solid fa-code-fork text-ctmblue mr-1"></i></i>${
+        repo.forks_count
+      }</h1>
+    </div>
+    <h4 class="text-xs text-red-500">Last update: <span>${date}</span></h4>
+  </div>
+  `;
+      });
+    });
 }
 
 function searchValue(e) {
