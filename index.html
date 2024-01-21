@@ -13,6 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./assets/css/iziToast.min.css">
   </head>
   <body class="font-Roboto bg-darkgray text-graywhite">
     <header class="bg-lightgray p-2">
@@ -28,6 +29,8 @@
       </div>
     </header>
 
+    
+
     <section class="container mx-auto">
       <main class="mt-7 px-4">
         <h1 class="text-center text-2xl">
@@ -38,28 +41,29 @@
             type="text"
             class="w-full px-2 py-1 rounded outline-none text-black"
             placeholder="Enter Valid Github username"
+            id="inputSearch"
           />
           <button
+            id="SearchBtn"
             type="button"
-            class="w-full px-2 py-1 rounded outline-none bg-ctmblue mt-2 hover:bg-teal-600 font-semibold text-black hover:text-white"
+            disabled
+            class="w-full px-2 py-1 rounded outline-none bg-ctmblue mt-2  font-semibold text-black "
           >
             Search
           </button>
+          
         </div>
 
-        <div class="w-full mt-3 flex justify-end">
-          <div
-            class="bg-ctmred sm:w-1/4 w-full animate-pulse rounded py-2 border-b border-gray-600"
-          >
-            <h3 class="text-center">User not Found..!</h3>
-          </div>
-        </div>
       </main>
     </section>
 
     <section
-      class="container mx-auto mt-14 p-9 border-gray-600 border-dashed rounded border"
+      class="container mx-auto mt-14 p-9 border-gray-600 border-dashed rounded border "
+      id="resultShowSection"
     >
+
+    <!-- Profile Page-->
+     <div class="">
       <div class="flex justify-center">
         <img
           src="/assets/img/grootx.png"
@@ -151,6 +155,9 @@
           </div>
         </div>
       </section>
+
+
+     </div>
 
       <div class="w-full">
         <div class="flex md:justify-end">
@@ -295,5 +302,6 @@
     </section>
 
     <script type="module" src="./assets/js/main.js"></script>
+    <script src="./assets/js/iziToast.min.js" type="text/javascript"></script>
   </body>
 </html>
