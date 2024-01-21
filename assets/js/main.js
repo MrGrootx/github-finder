@@ -1,10 +1,5 @@
 import iziToast from "izitoast";
 import { SetNotificationErr } from "../js/notification";
-// import { userDataPage } from "../js/Pageuser";
-
-// console.log(iziToast);
-
-// https://api.github.com/users/
 
 const API = "https://api.github.com/users/";
 
@@ -41,10 +36,9 @@ async function getUserFcn(username) {
 
   try {
     const res = await fetch(API + username);
-    const notification = document.querySelector("#notification");
     if (!res.ok) {
       if (res.status === 404) {
-        console.log("User not found");
+      //   console.log("User not found");
 
         SetNotificationErr(false, "User not Found", 5000, "#222831", "#00ADB5");
 
@@ -54,7 +48,7 @@ async function getUserFcn(username) {
     } else {
       const data = await res.json();
       PageUppendfcn(data);
-      console.log(data);
+      // console.log(data);
     }
   } catch (error) {}
 }
@@ -63,7 +57,7 @@ const resultShowSection = document.querySelector("#resultShowSection");
 async function PageUppendfcn(data) {
   const orgDate = data.created_at;
   const convertDate = new Date(orgDate).toDateString();
-
+  inputUser.value = "";
   resultShowSection.classList.remove("hidden");
   resultShowSection.innerHTML += `
    <div class="">
@@ -198,7 +192,9 @@ async function PageUppendfcn(data) {
 
   const url = `https://api.github.com/users/${data.login}/repos`;
 
-  const sectionHeader = document.querySelector("#sectionHeader").classList.remove("hidden");
+  const sectionHeader = document
+    .querySelector("#sectionHeader")
+    .classList.remove("hidden");
 
   fetch(url)
     .then((res) => res.json())
@@ -244,7 +240,13 @@ function searchValue(e) {
   if (inputUser.value != "") {
     getUserFcn(inputUser.value);
   } else {
-    console.log("no data found");
+   //  console.log("no data found");
     return false;
   }
 }
+
+setInterval(() => {
+  if (inputUser.value === "") {
+    SearchBtn.disabled = true;
+  }
+}, 500);
