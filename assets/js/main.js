@@ -8,14 +8,16 @@ const homePageBtn = document.querySelector("#homePageBtn");
 const aboutPageBtn = document.querySelector("#homeAboutPageBtn");
 
 homePageBtn.addEventListener("click", homePageBtnFcn);
-function homePageBtnFcn() {
-  // location.href = "./index.html";
+function homePageBtnFcn(e) {
+  window.location.href = "./index.html";
 }
-aboutPageBtn.addEventListener("click", aboutPageBtnFcn);
-function aboutPageBtnFcn() {
-  // location.href = "./about.html";
-  window.location.href = "https://mrgrootx.github.io/github-finder/about.html";
-}
+aboutPageBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = "./about.html";
+});
+// function aboutPageBtnFcn(e) {
+//   window.location.href = "./about.html";
+// }
 
 const inputUser = document.querySelector("#inputSearch");
 const SearchBtn = document.querySelector("#SearchBtn");
@@ -23,9 +25,17 @@ const SearchBtn = document.querySelector("#SearchBtn");
 SearchBtn.addEventListener("click", searchValue);
 
 // Disabling Btn if no input
+
+setInterval(() => {
+  if (inputUser.value === "") {
+    SearchBtn.disabled = true;
+    SearchBtn.classList.add("hidden");
+  }
+}, 1000);
 inputUser.addEventListener("keyup", (e) => {
   const value = e.currentTarget.value;
   SearchBtn.disabled = false;
+  SearchBtn.classList.remove("hidden");
 
   if (value === "") {
     SearchBtn.disabled = true;
@@ -256,5 +266,5 @@ setInterval(() => {
 
 const searchNewuser = document.querySelector("#searchNewuser");
 searchNewuser.addEventListener("click", (e) => {
-   location.href = "./index.html"
-})
+  location.href = "./index.html";
+});

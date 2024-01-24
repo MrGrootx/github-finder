@@ -5,6 +5,8 @@ export default {
     "./about.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./assets/js/main.js",
+    "./assets/js/iziToast.min.js.js",
+    "./assets/js/notification.js",
     "./**/*.js",
   ],
   theme: {
