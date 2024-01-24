@@ -9,11 +9,12 @@ const aboutPageBtn = document.querySelector("#homeAboutPageBtn");
 
 homePageBtn.addEventListener("click", homePageBtnFcn);
 function homePageBtnFcn() {
-  location.href = "./index.html";
+  // location.href = "./index.html";
 }
 aboutPageBtn.addEventListener("click", aboutPageBtnFcn);
 function aboutPageBtnFcn() {
-  location.href = "./about.html";
+  // location.href = "./about.html";
+  window.location.href = "https://mrgrootx.github.io/github-finder/about.html";
 }
 
 const inputUser = document.querySelector("#inputSearch");

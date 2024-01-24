@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./about.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./assets/js/main.js",
     "./**/*.js",
   ],
   theme: {
