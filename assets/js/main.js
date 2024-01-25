@@ -185,18 +185,18 @@ async function PageUppendfcn(data) {
 
 
      <div class="w-full">
-        <div class="flex md:justify-end">
-          <ul class="md:w-32 w-full text-center mt-3">
-            <a href="${data.html_url}" target="_blank" rel="noopener noreferrer"
-              ><li
-                class="bg-ctmblue py-1 rounded text-gray-900 font-semibold hover:bg-teal-600"
-              >
-              Visite Profile
-              </li></a
-            >
-          </ul>
-        </div>
-      </div>
+     <div class="flex md:justify-end">
+       <ul class="md:w-36 w-full text-center mt-3">
+         <a href="${data.html_url}" target="_blank" rel="noopener noreferrer"
+           ><li
+             class="bg-ctmblue py-1 rounded text-gray-900 font-semibold hover:bg-teal-600 w-full"
+           >
+           Visite Profile
+           </li></a
+         >
+       </ul>
+     </div>
+   </div>
 
    `;
 
