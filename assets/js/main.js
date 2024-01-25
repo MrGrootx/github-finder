@@ -191,7 +191,7 @@ async function PageUppendfcn(data) {
               ><li
                 class="bg-ctmblue py-1 rounded text-gray-900 font-semibold hover:bg-teal-600"
               >
-                Vist Profile
+              Visite Profile
               </li></a
             >
           </ul>
